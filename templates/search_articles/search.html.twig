@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} SearchArticlesController!{% endblock %}
+
+{% block body %}
+
+   {# si BDD est vide je passe un message et button pour ajouter 
+   des articles de l'api JSONPlaceholder vers BDD #}
+    {% if articles is empty  %}
+         
+    <div class="container">
+        <div class="alert alert-dismissible alert-warning center">
+        
+             <h4 class="alert-heading">Note!</h4>
+             <p class="mb-0">Il y a 0 article cliquer sur le button ci-dessous pour ajouter des articles</p>
+
+        </div>
+        <div class="center">
+            <p class="lead ">
+                    <a class="btn btn-primary btn-lg" href="{{ path('add_articles') }}" role="button">Ajouter 100 articles de l'api JSONPlaceholder vers BDD</a>
+            </p>
+        </div>
+    </div>    
+
+
+  
+  
+    {# si non J'affiche les articles #}
+
+    {% else %}
+
+        <div class="container">
+        
+
+           {# Afficher les articles #}
+           
+                 {# Afficher combien on a d'articles #}
+
+            <div class="alert alert-dismissible alert-info center">
+
+             <h4 class="alert-heading">Nous avons {{ donnees | length}} articles</h4>
+             
+            </div>
+
+                  {# Afficher les articles en utilisant une table #}
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                    <th scope="col">Identifiant </th>
+                    <th scope="col">Titre </th>
+                    <th scope="col">Lien</th>                    
+                    </tr>
+                </thead>
+                <tbody>
+                  {# Récupérer les articles #}
+                    {% for article in articles %}
+                    <tr class="table-active">
+                        <th scope="row">{{ article.id }}</th>
+                        <td>{{ article.title }}</td>
+                        <td><a href="{{ path("show_article",{'id':article.id }) }}" class="btn btn-info">En savoir plus !</a></td>                    
+                    </tr>
+                   {% endfor %} 
+                </tbody>
+            </table>  
+        
+                      
+           
+            
+            {# Afficher la pagination  #}
+            <center>
+                {{ knp_pagination_render(articles) }}
+            </center>
+            
+
+        </div>        
+    {% endif %}
+
+{% endblock %}

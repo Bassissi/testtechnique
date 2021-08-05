@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} ShowArticleController!{% endblock %}
+
+
+{% block body %}
+    {# afficher l'article correspondant au id  #}
+    <div class="container ">
+    
+        <div class="card border-info mb-3 mt-3  center" >
+            <div class="card-header "><h6>{{ article.title }}</h6></div>
+            <div class="card-body">              
+                <p class="card-text">{{ article.body }}</p>
+                <div class="text-right">
+                {# Un lien pour retourner vers la liste des articles #}
+                   <a href="{{ path('search_articles') }}">
+                    <img src="/imgs/fleche.jpg" title="Retourner vers les articles" style="width:50px; height:50px;">
+                   </a> 
+                </div>
+            </div>
+
+        </div>
+       
+    </div>    
+{% endblock %}

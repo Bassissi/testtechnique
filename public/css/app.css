@@ -1,0 +1,41 @@
+div.container
+{
+    margin-top: 20px;
+}
+div.ad-title div
+{
+    padding: 2em; 
+    background-size: cover;
+    background-position: center center;
+}
+div.ad-title h1, div.ad-title p
+{
+    color: white; 
+    text-shadow: 3px 3px 3px rgba(0,0,0,0.5); 
+
+}
+div.carousel-caption
+{
+    text-shadow: 3px 3px 3px rgba(0,0,0,0.5);  
+}
+.center
+{
+    text-align: center;
+}
+.pagination 
+{
+    color:red; 
+    font-size: 25px;
+  
+    margin-bottom: 10px;
+    background-color: #17a2b8; 
+}
+.pagination span
+{
+    padding: 5px;
+     
+}
+.pagination span a 
+{
+    color: wheat;
+}

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} AddArticleController!{% endblock %}
+
+
+{% block body %}
+    {# afficher un message indique qu'on a bien ajouté cents articles
+       ce message disparaîtra après 5 secondes en utilisant javascript
+     #}
+    <div class="container ">
+         <div class="alert alert-dismissible alert-success center" id="message" >
+                
+            <h4 class="alert-heading">Bravo!</h4>
+            <p class="mb-0">Vous avez bien ajouté cents articles </p>
+
+
+         </div> 
+     {# un button pour aller voir les articles     #}
+         <div class="center">
+              <a href="{{ path('search_articles')}}" class="btn btn-info"> Voir les articles</a>
+         </div>
+ 
+
+       
+    </div>    
+{% endblock %}
